@@ -359,8 +359,8 @@ class OrderSetting(Setting):
         if self.value not in self.STR_ORDER_TYPES:
             return ordering
         if sort.ignore_case.value:
-            return lambda s: ordering(os.path.basename(s).lower())
-        return lambda s: ordering(os.path.basename(s))
+            return lambda s: ordering(s.lower())
+        return lambda s: ordering(s)
 
     def __str__(self) -> str:
         return "Order"
